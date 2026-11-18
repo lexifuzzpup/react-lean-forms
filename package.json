@@ -1,0 +1,19 @@
+{
+  "name": "react-lean-forms",
+  "version": "1.0.0",
+  "module": "index.tsx",
+  "type": "module",
+  "scripts": {
+    "typecheck": "bun check"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19.3.0"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "react": "^19.3.1"
+  }
+}
