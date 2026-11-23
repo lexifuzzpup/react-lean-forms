@@ -4,6 +4,7 @@ export type FormDataHook<T> = {
     getField(name: any): FormFieldHook | undefined;
     toJson(): T;
     clearErrors(): void;
+    resetFields(): void;
     fields: Record<keyof T, FormFieldHook>;
 };
 
@@ -28,6 +29,11 @@ export function useFormData<T extends { [ key: string ]: string }>(fields: T): F
             for(const hook of Object.values(fieldHooks)) {
                 hook.setError();
             }
-        }
+        },
+        resetFields: () => {
+            for(const [ fieldName, hook ] of Object.entries(fieldHooks)) {
+                hook.setValue(fields[fieldName]!);
+            }
+        },
     } satisfies FormDataHook<T>;
 }
